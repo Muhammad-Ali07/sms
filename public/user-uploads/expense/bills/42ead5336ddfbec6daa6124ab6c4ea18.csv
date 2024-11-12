@@ -1,0 +1,2 @@
+product_id,supplier_id,supplier_price,products_model,price,tax,tax_collection,product_name,category_id,unit,serial_no,model,description,subcat_model,brand_model,Rackno,Valuationcost,status,valuationmethod
+3,mustafa lakhani tester,mus product,mus model,200,0,110,mus pro name,shk cat,mus unit,mus serial no,mus model,mus desc,mus subcat model,mus brnd,mus rack,8,10,11
