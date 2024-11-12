@@ -1,0 +1,83 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Generation Time: Aug 18, 2024 at 04:59 PM
+-- Server version: 10.1.32-MariaDB
+-- PHP Version: 7.2.5
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `software`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `role_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `uncrypted_password` longtext COLLATE utf8mb4_unicode_ci,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `role_id`, `user_id`, `name`, `email`, `email_verified_at`, `password`, `uncrypted_password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 1, NULL, 'Admin', 'admin@admin.com', NULL, '$2y$10$B.dVQTHzoqP7xnTnfGuxb.vun71lwqI1vp/473ZBN5S9vPNeRqHeG', '', 'hfLLT51Qea723XQafTgOdoAVmThZ7sGW1iLJ7tqPQUFcUA1KRFkMcyg8cx1h', '2021-09-17 01:56:47', '2021-09-17 01:56:47'),
+(5, NULL, NULL, 'Tahir malik', 'Tahirmalik@nsk.com.pk', NULL, '$2y$10$B.dVQTHzoqP7xnTnfGuxb.vun71lwqI1vp/473ZBN5S9vPNeRqHeG', '', NULL, NULL, NULL),
+(6, NULL, NULL, 'Fakhar abbas', 'Fakhar@nsk.com.pk', NULL, '$2y$10$OhJm2O8DUUZudqchpA0FG.SEsn7hPMKUTTru9zqYfzqZyNCqwO5tm', '', NULL, NULL, NULL),
+(7, NULL, NULL, 'afzal Ahmed', 'afzalahmed@nsk.com.pk', NULL, '$2y$10$ti8F8J34Bp9DV8RIOdf3JOWHsR8MLUG354ZLvmgwZZGACSMuwWTcW', '', 'MfVeCq8UZMgb4X0Qiqd1qNqejq92XugCqgTFITL6aZi1g4cHbWdrvUKfza5E', NULL, NULL),
+(8, NULL, NULL, 'Muzammil', 'Muzzamil@nsk.com.pk', NULL, '$2y$10$h//nAEXhLgCi.S1qH566MOaoDz53XyBnvBpuc92wMii88YWv8VIa.', '', 'znPifbbZ2KirXabezUpD1ay782YDSmYt3K2qUMojkEmskJMTQ38tRNCK70lk', NULL, NULL),
+(10, 1, 1, 'Macter International LTD.', 'mector_internation@gmail.com', NULL, '$2y$10$qMgEaTemoAk66S1JTzq1.Oq6vQv1EXvI4FHZXSpPFV6yKpxlAOT0.', '', NULL, '2022-04-09 14:03:29', '2022-04-09 14:03:29'),
+(13, 1, 89, 'METIER DISTRIBUTEURS', 'tracking@metier.com', NULL, '$2y$10$B.dVQTHzoqP7xnTnfGuxb.vun71lwqI1vp/473ZBN5S9vPNeRqHeG', '', NULL, '2022-04-26 16:31:30', '2022-04-26 16:31:30'),
+(14, 2, 1, 'Macter International LTD.', 'macterofficial@gmail.com', NULL, '$2y$10$vNeT71exp/UxQVvQXGJPIeq9hiV9ebs4gBueDPNC06zBL0H/a7MuW', 'Macter@1234', NULL, NULL, NULL),
+(16, 1, NULL, 'Admin', 'admin@gmail.com', NULL, '$2y$10$B.dVQTHzoqP7xnTnfGuxb.vun71lwqI1vp/473ZBN5S9vPNeRqHeG', '', 'JylRnTM2XJSI33Xqp0eNUSeZwqcuEz7WTE7f6o0fwUvaKJvF7cH7ckVrdUr2', '2021-09-17 01:56:47', '2021-09-17 01:56:47');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_email_unique` (`email`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

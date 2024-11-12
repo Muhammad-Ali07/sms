@@ -1,0 +1,220 @@
+@extends('layouts.master')
+
+@section('body')
+
+main
+
+@endsection
+
+@section('main-content')
+
+@include('includes.mobile-nav')
+
+@if(session()->has('success'))
+
+<?php
+
+   $subbmitted = "logo.png"; 
+     ?>
+
+@else
+
+<?php
+
+   $subbmitted = 0; 
+
+   ?>
+
+@endif
+
+<style>
+
+   /**/
+
+   /*.lcl_amount,.lcl_div,.fcl_div,.div_paid,.customer_type{*/
+
+   /*display:none;*/
+
+   /*}*/
+
+
+   li.page-item {
+
+   padding: 17px;
+
+   font-size: 21px;
+
+   }
+.nav-item {
+  margin-right: 10px; /* Adds gap between tabs */
+}
+
+.nav-link {
+  transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+.nav.nav-tabs .active{
+    border-color:white !important;
+}
+
+#dynamic-inputs {
+    display: flex;                /* Use flexbox for horizontal layout */
+    flex-wrap: nowrap;           /* Prevent wrapping to the next line */
+    overflow-x: auto;            /* Enable horizontal scrolling if necessary */
+}
+
+.input-container {
+    margin-right: 16px;          /* Add some space between the input fields */
+}
+
+
+</style>
+
+@php
+    $depositor = $data['depositor'];
+    $user = auth()->user()->id;
+    $user_meta = DB::table('user_meta')->where('fk_user_id','=',$user)->first();
+    
+@endphp
+
+<div class="flex">
+
+   <!-- BEGIN: Side Menu -->
+
+   @include('includes.side-nav')
+
+   <div class="content">
+
+      <!-- BEGIN: Top Bar -->
+
+      @include('includes.top-bar')
+
+      <!-- END: Top Bar -->
+
+      <div class="grid">
+
+         <div class="grid grid-cols-12 gap-6 mt-5">
+
+
+            <div class="intro-y col-span-12 lg:col-span-12">
+
+               <!-- BEGIN: Input -->
+
+               <div class="intro-y box">
+
+                    <div class="flex flex-col sm:flex-row items-center justify-between p-5 border-b border-gray-200 dark:border-dark-5">
+                        <div class="row w-full">
+                            <div class="col-lg-6">
+                                <h2 class="font-medium text-base mr-auto">
+                                    Edit Depositor
+                                    <div class="intro-ul"></div>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+
+
+                  <div id="input" class="p-5">
+
+                     <div class="preview">
+
+                        @if (count($errors) > 0)
+
+                        <div>
+
+                           <ul>
+
+                              @foreach ($errors->all() as $error)
+
+                              <li style='color:red'>{{ $error }}</li>
+
+                              @endforeach
+
+                           </ul>
+
+                        </div>
+
+                        @endif
+
+                        <form id="myForm" method="post" action="{{route('update-depositor')}}" onkeydown="return event.key != 'Enter';">
+                            <input type="hidden" class="form-control" value="{{$depositor->id}}" name="id">
+
+                           @csrf
+                            <div class="tab-content" id="myTabContent">
+                                <!--main div tab starts here-->
+                                <div class="tab-pane fade show active"role="tabpanel" aria-labelledby="home-tab">
+                                   <div class="classic open_classic">
+        
+        
+                                      <div class="grid grid-cols-12 gap-2 mt-2 mb-2">
+        
+                                         <div class="col-span-4">
+        
+                                            <label for="regular-form-22" class="form-label">Name</label>
+        
+                                            <input id="regular-form-22" type="text" class="form-control" value="{{$depositor->name}}" name="name">
+        
+                                         </div>
+                                         <div class="col-span-4">
+        
+                                            <label for="regular-form-22" class="form-label">City</label>
+        
+                                            <input id="regular-form-22" type="text" class="form-control" value="{{$depositor->city}}" name="city">
+        
+                                         </div>
+                                         <div class="col-span-4">
+        
+                                            <label for="regular-form-22" class="form-label">Phone</label>
+        
+                                            <input id="regular-form-22" type="text" class="form-control" name="phone" value="{{$depositor->phone_no}}">
+        
+                                         </div>
+        
+                                      </div>
+
+
+                                   </div>
+                                </div>
+                            </div>
+                            
+                            @if($user_meta->container_deposit == 1)
+                                @if($user_meta->edition == 1)
+                                  <input type="submit" value="Save" class="show_fields btn btn-primary mt-5">
+                                @endif
+                            @endif
+                          <button class="show_fields btn btn-primary mt-5" id="Reset">Reset</button>
+                     </div>
+
+                  </div>
+
+
+
+
+
+               </div>
+
+               </form>
+
+            </div>
+
+         </div>
+
+         <!--grid table-->
+
+         </div>
+
+      </div>
+
+   </div>
+
+</div>
+
+</div>
+
+</div>
+
+@endsection
+
+@section('script')
+
+
+@endsection

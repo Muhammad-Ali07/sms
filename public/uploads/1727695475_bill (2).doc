@@ -1,0 +1,78 @@
+
+                <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word">
+                    <head>
+                        <meta charset="utf-8">
+                        <title>Bill Document</title>
+                        <style>
+                            body { font-family: Arial, sans-serif; }
+                            .total-amount { font-weight: bold; }
+                        </style>
+                    </head>
+                    <body>
+                        <h1>Bill Document</h1>
+                        <h2>Company Name Here</h2>
+                        <h3>Customer Info</h3>
+                        <p>Name: John Doe</p>
+                        <p>Phone No: 23344555566</p>
+                        <p>Address: Street 5, XYZ, City, State, Country</p>
+                        <h3>Invoice Info</h3>
+                        <p>Bill Reference No: 3456789</p>
+                        <p>Invoice Date: 25-05-2024</p>
+                        <h3>Invoice Details</h3>
+                        <table border="1" style="border-collapse:collapse; width: 100%;">
+                            <tr>
+                                <th>Sr No</th>
+                                <th>Bilty No</th>
+                                <th>Date</th>
+                                <th>Origin</th>
+                                <th>Destination</th>
+                                <th>Vehicle No</th>
+                                <th>Vehicle Type</th>
+                                <th>Freight Amount (PKR)</th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>001</td>
+                                <td>25-05-2024</td>
+                                <td>Karachi</td>
+                                <td>Lahore</td>
+                                <td>ABC-1234</td>
+                                <td>Truck</td>
+                                <td>5000</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>002</td>
+                                <td>26-05-2024</td>
+                                <td>Karachi</td>
+                                <td>Faisalabad</td>
+                                <td>XYZ-5678</td>
+                                <td>Van</td>
+                                <td>7000</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>003</td>
+                                <td>27-05-2024</td>
+                                <td>Lahore</td>
+                                <td>Karachi</td>
+                                <td>DEF-9101</td>
+                                <td>Truck</td>
+                                <td>6000</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>004</td>
+                                <td>28-05-2024</td>
+                                <td>Lahore</td>
+                                <td>Multan</td>
+                                <td>GHI-1213</td>
+                                <td>Bus</td>
+                                <td>4500</td>
+                            </tr>
+                        </table>
+                        <p>Total Amount (PKR): 26825</p>
+                        <p>Terms and Conditions: All payments must be made within 30 days of invoice date.</p>
+                    </body>
+                </html>
+            
